@@ -1,9 +1,12 @@
+import datetime as dt
+
 from airflow import DAG
 from airflow.providers.cncf.kubernetes.operators.kubernetes_pod import KubernetesPodOperator
 
 with DAG(
         dag_id="daily_cash_balances_dag.py",
         description="Invoke debezium to import Cash Balances",
+        start_date=dt.datetime(2024, 3, 15),
         schedule_interval="@hourly",
         default_args={"depends_on_past": True},
 ) as dag:
