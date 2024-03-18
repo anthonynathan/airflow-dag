@@ -13,7 +13,7 @@ with DAG(
     insert_cash_balances_signal = KubernetesPodOperator(
         task_id="insert_cash_balances_signal",
         image="kind-registry:5000/cash-balances-importer:latest",
-        # cmds=["/app/bin/cash-balances-importer"],
+        cmds=["/app/bin/cash-balances-importer"],
         namespace="infrastructure",
         name="cash-balances-importer",
         in_cluster=True,
