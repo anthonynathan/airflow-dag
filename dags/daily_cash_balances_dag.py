@@ -14,7 +14,7 @@ with DAG(
         task_id="insert_cash_balances_signal",
         image="kind-registry:5000/cash-balances-importer:latest",
         cmds=["su", "-", "appuser", "-c"],
-        params=["/app/bin/cash-balances-importer"],
+        arguments=["/app/bin/cash-balances-importer"],
         namespace="infrastructure",
         name="cash-balances-importer",
         in_cluster=True,
