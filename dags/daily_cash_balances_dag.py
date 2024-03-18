@@ -18,5 +18,5 @@ with DAG(
         name="cash-balances-importer",
         in_cluster=True,
         image_pull_policy="Always",
-        is_delete_operator_pod=True,
+        on_finish_action="delete_succeeded_pod",
     )
